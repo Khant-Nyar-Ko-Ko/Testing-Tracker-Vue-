@@ -1,9 +1,23 @@
 <template>
     <footer>
         <p>Copyright &copy; 2023</p>
-        <router-link to="/about">About</router-link>
+        <router-link to="/about" v-show="aboutButton">About</router-link>
     </footer>
 </template>
+
+<script>
+    export default {
+        name: 'Footer',
+        computed : {
+            aboutButton() {
+                if(this.$route.path === '/'){
+                    return true
+                }
+                return false
+            }
+        }
+    }
+</script>
 
 <style scoped>
     a {
